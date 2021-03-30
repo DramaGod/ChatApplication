@@ -1,0 +1,91 @@
+###
+POST {{host}}/api/v1/open/auth/sign-up
+Content-Type: application/json
+
+{
+  "firstname": "ana",
+  "lastname": "cirekidze",
+  "username": "hello",
+  "email": "c@mail.ru",
+  "password": "123456",
+  "rePassword": "123456"
+
+}
+
+###
+POST {{host}}/api/v1/open/auth/token
+Content-Type: application/json
+
+{
+  "email": "c@mail.ru",
+  "password": "123456"
+}
+
+
+###
+POST {{host}}/api/v1/private/user/list
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiYW5pQG1haWwucnUiLCJzdWIiOiJhbmlAbWFpbC5ydSIsImlhdCI6MTYxNTA0NjE2NCwiZXhwIjoxNjE1MDQ5NzY0fQ.L03jpAc9AYAqszNXXEvA2ME1HI3X-yTPKOSuPURgBNk
+
+###
+POST {{host}}/api/v1/private/made/admin
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiYW5pQG1haWwucnUiLCJzdWIiOiJhbmlAbWFpbC5ydSIsImlhdCI6MTYxNDk1MTIyMywiZXhwIjoxNjE0OTU0ODIzfQ.oZ0c3zRU51s9a4F5GJQjwPaxCk2zu0ifqwgz2uVOq3U
+
+
+###
+POST {{host}}/api/v1/private/register/user/lecture
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiTUFSSUBtYWlsLnJ1Iiwic3ViIjoiTUFSSUBtYWlsLnJ1IiwiaWF0IjoxNjE1MzcwODA5LCJleHAiOjE2MTUzNzQ0MDl9.MgGunqzhGjfRVo32VPN5P-j3lim3GkKYZ5MP0g_29mo
+
+{
+  "username": "mRRR",
+  "name": "Mathematic"
+}
+
+###
+POST {{host}}/api/v1/private/made/admin/mRRR
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiYW5pQG1haWwucnUiLCJzdWIiOiJhbmlAbWFpbC5ydSIsImlhdCI6MTYxNTA0NzMyMSwiZXhwIjoxNjE1MDUwOTIxfQ.TXK05No8TqWJNAB6LoVcD5Mmcw29ItzxBsIQ_cLJsMA
+
+###
+POST {{host}}/api/v1/private/add/lecture
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiTUFSSUBtYWlsLnJ1Iiwic3ViIjoiTUFSSUBtYWlsLnJ1IiwiaWF0IjoxNjE1MzcwODA5LCJleHAiOjE2MTUzNzQ0MDl9.MgGunqzhGjfRVo32VPN5P-j3lim3GkKYZ5MP0g_29mo
+
+{
+  "time": "2021-03-10T10:22:30",
+  "name": "Biology"
+}
+
+
+###
+DELETE {{host}}/api/v1/private/delete/lecture/physics
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiYW5pQG1haWwucnUiLCJzdWIiOiJhbmlAbWFpbC5ydSIsImlhdCI6MTYxNTA0OTQ3OCwiZXhwIjoxNjE1MDUzMDc4fQ.sRBVpNIs6N6cIhuWldsrIYbPpS4RFI1lSK-oVGdWkJE
+
+###
+POST {{host}}/api/v1/private/student/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiYW5pQG1haWwucnUiLCJzdWIiOiJhbmlAbWFpbC5ydSIsImlhdCI6MTYxNTA1NTM4MSwiZXhwIjoxNjE1MDU4OTgxfQ.0kt5TdTgZtZ-9dqvxikilLLt1MEX08vuEuxHakuEaK4
+
+{
+  "firstname":"nika",
+  "lastname":"cirekidze",
+  "username":"nika",
+  "email":"nika@mail.ru",
+  "password":"123456",
+  "rePassword":"123456"
+
+}
+
+###
+POST {{host}}/api/v1/private/add/room/701
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiYW5pQG1haWwucnUiLCJzdWIiOiJhbmlAbWFpbC5ydSIsImlhdCI6MTYxNTA2MjM3MywiZXhwIjoxNjE1MDY1OTczfQ.tRQwDw611Zl5CAU4gWrLlUlEB5zAUkyWTQ9N-ir6yto
+
+
+###
+POST {{host}}/lecture/list
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoiTUFSSUBtYWlsLnJ1Iiwic3ViIjoiTUFSSUBtYWlsLnJ1IiwiaWF0IjoxNjE1Mjg3MjgxLCJleHAiOjE2MTUyOTA4ODF9.ZsK6IDdocVdKCOc__x5z6bXi6d-DOYk-G0k_lg4-fNI
