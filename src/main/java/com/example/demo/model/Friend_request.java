@@ -2,14 +2,41 @@ package com.example.demo.model;
 
 import com.example.demo.WebEntity;
 
-public class Friend_request extends WebEntity {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 
-    private double user_id;
+@Entity
+@Table(name = "friend_request")
+public class Friend_request extends  WebEntity{
 
-    private double friend_id;
 
+    @Column(name = "sender_id")
+    private Long sender;
+
+    @Column(name = "reciever_id")
+    private Long reciever;
+
+    @Column (name = "type")
     private boolean type;
+
+
+    public Long getSender() {
+        return sender;
+    }
+
+    public void setSender(Long sender) {
+        this.sender = sender;
+    }
+
+    public Long getReciever() {
+        return reciever;
+    }
+
+    public void setReciever(Long reciever) {
+        this.reciever = reciever;
+    }
 
     public boolean isType() {
         return type;
@@ -18,21 +45,4 @@ public class Friend_request extends WebEntity {
     public void setType(boolean type) {
         this.type = type;
     }
-
-    public double getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(double user_id) {
-        this.user_id = user_id;
-    }
-
-    public double getFriend_id() {
-        return friend_id;
-    }
-
-    public void setFriend_id(double friend_id) {
-        this.friend_id = friend_id;
-    }
-
 }

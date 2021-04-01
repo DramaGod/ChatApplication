@@ -1,5 +1,7 @@
 package com.example.demo.Security;
 
+import com.example.demo.jwt.JwtSecurityConfigurer;
+import com.example.demo.jwt.JwtTokenProvider;
 import com.example.demo.repository.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,9 +28,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserService userDetailsService;
+    private final JwtTokenProvider jwtTokenProvider;
 
-    public WebSecurityConfig(UserService userDetailsService) {
+    public WebSecurityConfig(UserService userDetailsService, JwtTokenProvider jwtTokenProvider) {
         this.userDetailsService = userDetailsService;
+        this.jwtTokenProvider = jwtTokenProvider;
     }
 
     @Override
@@ -39,8 +43,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/v1/open/**").permitAll();
+                .antMatchers("/api/v1/open/**").permitAll()
                 //.antMatchers(Constants.PRIVATE_ENDPOINT).hasRole("ADMIN")
+                .antMatchers(Constants.PRIVATE_ENDPOINT).authenticated()
+                .and()
+                .apply(new JwtSecurityConfigurer(jwtTokenProvider));
 
     }
 

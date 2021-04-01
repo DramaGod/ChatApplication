@@ -34,35 +34,17 @@ public class User extends WebEntity implements UserDetails {
     @Column(name = "ROLE")
     protected String ROLE;
 
+    @Column (name = "notification")
+    protected String notification;
 
+    public String getNotification() {
+        return notification;
+    }
 
-   /* @OneToOne(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    @JoinColumn(name = "sender_id", referencedColumnName = "id")
-    @JsonIgnore
-    protected Message message; */
+    public void setNotification(String notification) {
+        this.notification = notification;
+    }
 
-
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "users_chat",
-            joinColumns = @JoinColumn(name = "sender_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "reciever_id", referencedColumnName = "id")
-    )
-    @JsonIgnore
-    protected List<User> recievers;
-
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "users_chat",
-            joinColumns = @JoinColumn(name = "sender_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "message_id", referencedColumnName = "id")
-    )
-    @JsonIgnore
-    protected List<Message> messages;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(
@@ -89,6 +71,7 @@ public class User extends WebEntity implements UserDetails {
     public String getUsername() {
         return this.email;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
@@ -152,22 +135,6 @@ public class User extends WebEntity implements UserDetails {
 
     public void setMail(String mail) {
         this.email = email;
-    }
-
-    public List<User> getRecievers() {
-        return recievers;
-    }
-
-    public void setRecievers(List<User> recievers) {
-        this.recievers = recievers;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 
     public List<User> getFriends() {
